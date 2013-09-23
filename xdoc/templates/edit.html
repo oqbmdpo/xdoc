@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<link rel="stylesheet" href="/static/typo.css" />
+	<link rel="stylesheet" href="/static/code.css" />
+	<title>Edit</title>
+	<style>
+	   a{color:#1abc9c;}
+       body h1{font:38px/1.8em Hiragino Mincho ProN, STSong, serif!important;color:#2c3e50;}
+	   #wrapper{width:860px;margin:auto;}
+       html{font-size:110%;}
+	   .ace_editor { height: 600px; width:880px;}
+    </style>
+	<script type="text/javascript" src="/static/js/ace.js"></script>
+	<script type="text/javascript" src="/static/js/angular.min.js"></script>
+	<script type="text/javascript" src="/static/js/mode-markdown.js"></script>
+	<script type="text/javascript" src="/static/js/theme-textmate.js"></script>
+	<script type="text/javascript" src="/static/js/ui-ace.js"></script>
+	<script type="text/javascript" src="/static/js/edit.js"></script>
+</head>
+<body ng-app="doc.ui-ace">
+	<div id="wrapper" class="typo" ng-controller="AceCtrl">
+		<h1>{% raw '{{ title }}' %}</h1>
+		<div ui-ace="{useWrapMode: true, 
+			theme: 'textmate', 
+			mode: 'markdown', 
+			fontSize: 16}" ng-model="aceModel"></div>
+	</div>
+</body>
+</html>

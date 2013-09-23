@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html ng-app="xdoc.editor">
+	<head>
+		<meta charset="utf-8" />
+		<title>Editor</title>
+		<link rel="stylesheet" href="/static/css/bootstrap.min.css" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<style>
+			#previewer {overflow-y:auto;}
+			.row {margin-right: 0; margin-left:0;}
+			.title{width: 400px;}
+			.navbar{margin-bottom: 0;border-radius:0}
+		</style>
+		<script type="text/javascript" src="/static/js/lib/ace.js"></script>
+		<script type="text/javascript" src="/static/js/lib/angular.min.js"></script>
+		<script type="text/javascript" src="/static/js/lib/angular-resource.min.js"></script>
+		<script type="text/javascript" src="/static/js/lib/mode-markdown.js"></script>
+		<script type="text/javascript" src="/static/js/lib/theme-textmate.js"></script>
+		<script type="text/javascript" src="/static/js/lib/ui-ace.js"></script>
+		<script type="text/javascript" src="/static/js/lib/showdown.js"></script>
+		<script type="text/javascript" src="/static/js/lib/jquery.js"></script>
+		<script type="text/javascript" src="/static/js/edit.js"></script>
+	</head>
+	<body ng-controller="AceCtrler">
+		<header class="navbar navbar-inverse">
+		<div class="navbar-header">
+			<a href="../" class="navbar-brand">Home</a>
+		</div>
+		<form class="navbar-form navbar-left form-inline">
+			<div class="form-group">
+				<input type="text" class="form-control title" placeholder="Title" ng-model="draft.title">
+			</div>
+			<div class="form-group">
+				<select class="form-control" ng-model="draft.category">
+					<option ng-repeat="category in categories">{{category}}</option>
+				</select>
+			</div>
+
+		</form>
+		<div class="btn-toolbar navbar-right">
+			<div class="btn-group">
+				<button type="button" class="btn btn-danger navbar-btn">Discard</button>
+			</div>
+			<div class="btn-group">
+				<button type="button" class="btn btn-success navbar-btn">Publish</button>
+			</div>
+			<div class="btn-group">
+				<button type="button" class="btn btn-primary navbar-btn" ng-click="save()">Save</button>
+			</div>
+		</div>
+		</header>
+		<div class="container-liquid">
+			<div class="row">
+				<div class="col-lg-6" ng-style="editor_style" resize ui-ace="{useWrapMode: true, 
+					theme: 'textmate', 
+					mode: 'markdown', 
+					fontSize: 16}" ng-model="draft.content"></div>
+				<div class="col-lg-6" id='previewer' ng-model="draft.content" ng-style="editor_style" resize markdown></div>
+			</div>
+		</div>
+	</body>
+</html>

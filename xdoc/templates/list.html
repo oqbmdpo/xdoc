@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<link rel="stylesheet" href="/static/typo.css" />
+	<link rel="stylesheet" href="/static/code.css" />
+	<title>{{title}}</title>
+	<style>
+	   a{color:#1abc9c;}
+       body h1{font:38px/1.8em Hiragino Mincho ProN, STSong, serif!important;color:#2c3e50;}
+	   #wrapper{width:860px;margin:auto;}
+       html{font-size:110%;}
+    </style>
+</head>
+<body>
+	<div id="wrapper" class="typo">
+		<h1>List</h1>
+		<ul>
+			{% for i in docs %}
+			<li><a href="/view/{{i.path}}">{{i.name}}</a></li>
+			{% end %}
+		</ul>
+	</div>
+</body>
+</html>
