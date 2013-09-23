@@ -4,11 +4,8 @@
 		<meta charset="utf-8" />
 		<title>Editor</title>
 		<link rel="stylesheet" href="/static/css/pure-min.css" />
+		<link rel="stylesheet" href="/static/css/editor.css" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-		<style>
-			#previewer {overflow-y:auto;}
-			.title {background: #191818;}
-		</style>
 		<script type="text/javascript" src="/static/js/lib/ace.js"></script>
 		<script type="text/javascript" src="/static/js/lib/angular.min.js"></script>
 		<script type="text/javascript" src="/static/js/lib/angular-resource.min.js"></script>
@@ -18,23 +15,21 @@
 		<script type="text/javascript" src="/static/js/lib/showdown.js"></script>
 		<script type="text/javascript" src="/static/js/edit.js"></script>
 	</head>
-	<body ng-controller="AceCtrler">
-		<div class="pure-menu pure-menu-open pure-menu-horizontal title">
+	<body ng-controller="EditorCtrler">
+		<div class="pure-menu pure-menu-open pure-menu-horizontal pure-menu-dark">
 			<a href="#" class="pure-menu-heading">Site Title</a>
-			<ul>
+			<ul class="menu">
 				<li class="pure-menu-selected"><a href="#">Home</a></li>
 				<li><a href="#">Flickr</a></li>
-				<li><a href="#">Messenger</a></li>
-				<li><a href="#">Sports</a></li>
-				<li><a href="#">Finance</a></li>
+				<li><a href="#">Flickr</a></li>
+				<li><a href="#">Flickr</a></li>
 			</ul>
 		</div>
 		<div class="pure-g">
-			<div class="pure-u-1-2" ng-style="editor_style" resize ui-ace="{useWrapMode: true, 
-				theme: 'textmate', 
-				mode: 'markdown', 
-				fontSize: 16}" ng-model="draft.content"></div>
-			<div class="pure-u-1-2" id='previewer' ng-model="draft.content" ng-style="editor_style" resize markdown></div>
+			<div class="pure-u-11-24" ng-style="editor_style" resize ace ng-model="draft.content"></div>
+			<div class="pure-u-13-24">
+				<div id='previewer' ng-model="draft.content" ng-style="editor_style" resize markdown></div>
+			</div>
 		</div>
 	</body>
 </html>

@@ -21,14 +21,11 @@ class TestModels(unittest.TestCase):
         with open('../example.md', 'r') as f:
             content = f.read().decode('utf-8')
 
-        '''
         d = Doc(uuid=str(uuid.uuid4()),
                 title='Example',
                 content=content);
         d.save()
-        '''
-        d = Doc.objects
-        print json.dumps(d, cls=DocJSONEncoder)
+        print d.id
 
 if __name__ == '__main__':
     unittest.main()
